@@ -7,7 +7,9 @@
   "private": true,
   "scripts": {
     "build": "webpack --mode:development",
-    "start": "webpack-dev-server --open --mode:development"
+    "start": "webpack-dev-server --open --mode:development",
+    "eslint": "eslint .",
+    "eslint-check": "eslint --print-config src/index.js | eslint-config-prettier-check"
   },
   "dependencies": {
     "react": "^16.10.2",
@@ -17,8 +19,17 @@
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
+    "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.1.2",
     "html-webpack-plugin": "^3.2.0",
+    "prettier": "^1.18.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.2"
