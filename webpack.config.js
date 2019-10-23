@@ -8,11 +8,27 @@ const outputPath = path.resolve(__dirname, 'dist');
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
   entry: {
-    reactApp: [path.join(__dirname, 'src', 'index.js')]
+    main: [path.join(__dirname, 'src', 'index.js')]
   },
   output: {
     path: outputPath,
-    filename: '[name].js'
+    filename: '[name].[contenthash].js',
+    chunkFilename: '[name].[contenthash].chunk.js'
+  },
+  optimization: {
+    chunkIds: 'natural',
+    splitChunks: {
+      chunks: 'initial',
+      filename: '[id].[contenthash].chunk.js',
+      cacheGroups: {
+        vendors: {
+          enforce: true
+        }
+      }
+    },
+    runtimeChunk: {
+      name: entrypoint => `runtime-${entrypoint.name}`
+    }
   },
   module: {
     rules: [
@@ -33,8 +49,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'index.html'),
-      hash: true
+      template: path.resolve(__dirname, 'index.html')
     })
   ]
 };
