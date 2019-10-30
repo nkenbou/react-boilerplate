@@ -12,6 +12,7 @@
     "eslint-check": "eslint --print-config src/index.js | eslint-config-prettier-check"
   },
   "dependencies": {
+    "core-js": "^3.3.5",
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
   },
